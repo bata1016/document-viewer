@@ -4,7 +4,7 @@
       <div class="app-name d-flex align-items-center">
         Apps name
       </div>
-        <button class="btn btn-lg" href="#">Log out <span class="sr-only">(current)</span></button>
+         <%= link_to "Log out", destroy_user_session_path, class: "btn btn-lg btn-facebook", span: "sr-only", method: :delete %>
     </div>
     <div class="form-row">
     <div class="form-group col-sm-4">
@@ -30,6 +30,6 @@
     </div>
   </div>
   <footer class="d-flex justify-content-center">
-    <button class="back-btn btn btn-lg btn-facebook d-flex align-items-end" href="#">トップページへ戻る</button>
+    <%= link_to "トップページへ戻る", root_path, class: "back-btn btn btn-lg btn-facebook d-flex align-items-end" %>
   </footer>
 </div>
