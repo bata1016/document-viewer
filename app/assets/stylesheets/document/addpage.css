@@ -15,6 +15,11 @@
   margin: 20px;
 }
 
+
+.submit-btn {
+  margin-left: 10px;
+}
+
 .added-content-preview {
   margin: 30px;
   height: calc(100% - 250px);
