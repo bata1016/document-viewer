@@ -1,0 +1,33 @@
+.wrapper {
+  position: relative;
+}
+.head {
+  height: 150px;
+}
+.head-top {
+  margin-top: 10px;
+}
+.app-name {
+  font-size: 30px;
+}
+
+.form-row {
+  margin: 20px;
+}
+
+.added-content-preview {
+  margin: 30px;
+  height: calc(100% - 250px);
+}
+
+footer {
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.back-btn {
+  width: 200px;
+  margin: 30px;
+}
