@@ -1,6 +1,6 @@
 <div wrapper>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" style="padding: 10px;" href="#">UserName</a>
+    <div class="username font-weight-bold" style="padding: 10px;"><h1 style="font-size: 20px; "><%= @user_name %></h1></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Log out <span class="sr-only">(current)</span></a>
+          <%= link_to "Log out", destroy_user_session_path, class: "nav-link", span: "sr-only", method: :delete %>
         </li>
         <li class="nav-item">
-          <a class="add-document nav-link" href="#">Add</a>
+          <%= link_to "Add Dcument", new_document_path, class: "add-document nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
