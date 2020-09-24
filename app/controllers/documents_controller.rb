@@ -4,10 +4,15 @@ class DocumentsController < ApplicationController
   end
 
   def new
-    
+    @document = Document.new
   end
 
   def create
 
   end
+
+
+  private
+
+  
 end

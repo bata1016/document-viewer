@@ -6,23 +6,33 @@
       </div>
          <%= link_to "Log out", destroy_user_session_path, class: "btn btn-lg btn-facebook", span: "sr-only", method: :delete %>
     </div>
-    <div class="form-row">
-    <div class="form-group col-sm-4">
-      <label for="text4a">Folder name</label>
-      <input type="text" class="form-control" id="text4a" placeholder="Folder name">
-    </div>
-    <div class="form-group col-sm-4">
-      <label for="text4b">Document name</label>
-      <input type="text" class="form-control" id="text4b" placeholder="Document name">
-    </div>
-    <div class="form-group col-4">
-      <div class="form-group" style="margin-top: 10px;">
-        <form method="post" enctype="multipart/form-data">
-        <input type="file" accept=".pdf" name="avatar">
-        <button type="submit">送信する</button>
-        </form>
+    <%= form_with model: @document do |f| %>
+      <div class="form-row">
+        <div class="form-group col-sm-4">
+          <%= f.label :folder_name, "Folder name" %>
+          <%= f.text_field :folder_name, id: "inputFoldername", placeholder: "Folder name"  %> 
+          <!-- <label for="text4a">Folder name</label>
+          <input type="text" class="form-control" id="text4a" placeholder="Folder name"> -->
+        </div>
+        <div class="form-group col-sm-4">
+          <%= f.label :document_name, "Dcument name" %>
+          <%= f.text_field :document_name, id: "inputDocumentname", placeholder: "Document name"  %>
+          <!-- <label for="text4b">Document name</label>
+          <input type="text" class="form-control" id="text4b" placeholder="Document name"> -->
+        </div>
+        <div class="form-group col-4">
+          <div class="form-group" style="margin-top: 21px;">
+            <%= f.file_field :image %>
+            <%= f.submit '送信する', class: "form-submit", accept:".pdf" %>
+            <!-- <form method="post" enctype="multipart/form-data">
+              <input type="file" accept=".pdf" name="avatar">
+              <button type="submit">送信する</button> -->
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end  %>
+  </div>
 
   <div class="added-content-preview">
     <div class="added-content">
