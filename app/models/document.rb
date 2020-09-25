@@ -1,5 +1,7 @@
 class Document < ApplicationRecord
-  validates :name, presence: true
+  # validates :document_name, presence: true
+  # validates :user,          presence: true
+  # validates :folder,        presence: true
 
   belongs_to :user
   belongs_to :folder

@@ -6,7 +6,8 @@
       </div>
          <%= link_to "Log out", destroy_user_session_path, class: "btn btn-lg btn-facebook", span: "sr-only", method: :delete %>
     </div>
-    <%= form_with model: @document do |f| %>
+    <%= form_with model: @document, url: documents_path do |f| %>
+    <%= render 'layouts/error_messages', document: @document %>
       <div class="form-row">
         <div class="form-group col-sm-4">
           <%= f.label :folder_name, "Folder name" %>
@@ -15,7 +16,7 @@
           <input type="text" class="form-control" id="text4a" placeholder="Folder name"> -->
         </div>
         <div class="form-group col-sm-4">
-          <%= f.label :document_name, "Dcument name" %>
+          <%= f.label :document_name, "Document name" %>
           <%= f.text_field :document_name, id: "inputDocumentname", placeholder: "Document name"  %>
           <!-- <label for="text4b">Document name</label>
           <input type="text" class="form-control" id="text4b" placeholder="Document name"> -->
@@ -36,7 +37,7 @@
 
   <div class="added-content-preview">
     <div class="added-content">
-      PDF
+      <%= "PDF" %>
     </div>
   </div>
   <footer class="d-flex justify-content-center">
