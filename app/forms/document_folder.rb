@@ -9,8 +9,8 @@ class DocumentFolder
   validates :document_name, presence: true
   validates :folder_name,   presence: true
   validates :image,         presence: true
-  validates :folder,        presence: true
-  validates :user,          presence: true
+  # validates :folder,        presence: true
+  # validates :user,          presence: true
 
   def save
     @folder = Folder.create(folder_name: folder_name, user_id: @user_id)
