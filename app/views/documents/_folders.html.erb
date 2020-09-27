@@ -1,0 +1,16 @@
+<div class="folders  overflow-hidden" style="margin-left: 10px;">
+  <% @folders.each do |folder| %>
+    <div class="folder border" style="padding: 10px; width: 200px; margin-top: 10px;">
+    <%= link_to folder.folder_name, folder_documents_path(folder.id) %>
+    </div>
+  <% end %>
+</div>
+
+<!-- <div class="folders  overflow-hidden" style="margin-left: 10px;">
+  <div class="folder border" style="padding: 10px; width: 200px; margin-top: 10px;">
+    <p class="text-center">folder</p>
+  </div>
+  <div class="folder border" style="padding: 10px; width: 200px; margin-top: 10px;">
+    <p class="text-center">folder</p>
+  </div>
+</div> -->

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: "documents#index"
+  root to: "folders#index"
   devise_for :users
-  resources :documents, only: [:new, :create]
+  resources :folders, only: [:new, :create] do
+    resources :documents, only: [:index]
+  end
 end

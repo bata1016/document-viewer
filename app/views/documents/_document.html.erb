@@ -1,0 +1,18 @@
+<div class="document" style="padding: 30px;">
+  <div class="row d-flex justify-content-around">
+    <% @document.each do |document| %>
+        <div class="col-3 border"style="padding: 10px;"><%= @folder.folder_name %></div>
+        <div class="col-3 border"style="padding: 10px;"><%= document.document_name %></div>
+        <div class="col-3 border"style="padding: 10px;"><%= document.created_at %></div>
+        <div class="col-3 border"style="padding: 10px;"><%=  %></div>
+        <div class="preview " style="width: 90%;">
+        <% document.images.each do |image| %>
+          <%= image_tag image.preview(resize: "1000x1000")%>
+        <% end %>
+        <% end %>
+        </div>
+  </div>
+</div>
+
+
+
