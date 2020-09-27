@@ -5,5 +5,5 @@ class Document < ApplicationRecord
 
   belongs_to :user
   belongs_to :folder
-  has_one_attached :image
+  has_many_attached :images
 end

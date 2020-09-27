@@ -1,7 +1,7 @@
-<% if document.errors.any? %>
- <div class="error-alert">
+<% if model.errors.any? %>
+ <div class="alert error-alert">
    <ul>
-     <% document.errors.full_messages.each do |message| %>
+     <% model.errors.full_messages.each do |message| %>
        <li class="error-message">
          <%= message %>
        </li>
