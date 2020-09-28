@@ -13,7 +13,6 @@ class DocumentsController < ApplicationController
   def create
     @folder = Folder.find(params[:folder_id])
     @document = Document.new(document_params)
-    binding.pry
     if @document.valid?
       @document.save
       redirect_to folder_documents_path(@folder.id)

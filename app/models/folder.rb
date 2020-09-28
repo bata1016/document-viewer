@@ -4,6 +4,6 @@ class Folder < ApplicationRecord
   # validates :folder_name, uniqueness: {case_sensitive: true}
 
   belongs_to :user
-  has_many   :documents
+  has_many   :documents, dependent: :destroy 
 
 end
