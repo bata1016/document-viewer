@@ -8,9 +8,9 @@
       <%= link_to "編集", edit_folder_document_path(@folder.id, document.id) %>
       <%= link_to "削除", folder_document_path(@folder.id, document.id), method: :delete%>
       </div>
-      <div class="preview " style="width: 90%;">
+      <div class="preview " >
       <% document.images.each do |image| %>
-        <%= image_tag image.preview(resize: "1000x800")%>
+        <%= image_tag image.preview(resize: "1000x1050")%>
       <% end %> 
     <% end %>
         </div>
