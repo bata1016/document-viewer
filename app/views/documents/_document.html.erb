@@ -6,7 +6,7 @@
       <div class="col-3 border"style="padding: 10px;"><%= document.created_at %></div>
       <div class="col-3 border"style="padding: 10px;">
       <%= link_to "編集", edit_folder_document_path(@folder.id, document.id) %>
-      <%= "削除" %>
+      <%= link_to "削除", folder_document_path(@folder.id, document.id), method: :delete%>
       </div>
       <div class="preview " style="width: 90%;">
       <% document.images.each do |image| %>

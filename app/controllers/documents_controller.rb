@@ -12,6 +12,11 @@ class DocumentsController < ApplicationController
 
   end
 
+  def destroy
+    document = Document.find(params[:id])
+    document.destroy
+  end
+
   def update
 
     @folder = Folder.find(params[:folder_id])
