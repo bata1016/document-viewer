@@ -1,9 +1,9 @@
-<div class="folders  overflow-hidden" style="margin-left: 10px;">
+<div class="folders" style="margin-left: 10px;">
   <% @folders.each do |folder| %>
-    <div class="folder border" style="padding: 10px; width: 200px; margin-top: 10px;">
+    <div class="folder border" style="padding: 30px 10px; width: 80%; margin-top: 10px;">
     <%= link_to folder.folder_name, folder_documents_path(folder.id) %>
-    <%= link_to "+", new_folder_document_path(@folder.id) %>
-    <%= link_to "-" %>
+    <%= link_to "+", new_folder_document_path(folder.id) %>
+    <%= link_to "-", folder_path(folder.id), method: :delete %>
     </div>
   <% end %>
 </div>

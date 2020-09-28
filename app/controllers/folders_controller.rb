@@ -12,12 +12,17 @@ def index
   def create
     @document = DocumentFolder.new(document_params)
     if @document.valid?
-      binding.pry
       @document.save
       return redirect_to root_path  
     else
       render "new"
     end
+  end
+
+  def destroy
+    folder = Folder.find(params[:id])
+    folder.destroy
+    redirect_to root_path
   end
 
 
