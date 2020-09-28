@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :folders, only: [:new, :create, :destroy] do
     resources :documents, only: [:index, :new, :create, :edit, :update, :destroy]
+    collection do
+      get "search"
+    end
   end
 end
