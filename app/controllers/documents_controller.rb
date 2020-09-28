@@ -6,6 +6,23 @@ class DocumentsController < ApplicationController
 
   end
 
+  def new 
+    @folder = Folder.find(params[:folder_id])
+  end
+
+  def create
+    @folder = Folder.find(params[:folder_id])
+    @document = Document.new(document_params)
+    binding.pry
+    if @document.valid?
+      @document.save
+      redirect_to folder_documents_path(@folder.id)
+    else
+      render "new"
+    end
+
+  end
+
   def edit
     @document = Document.find(params[:id])
     @folder = Folder.find(params[:folder_id])
@@ -16,9 +33,7 @@ class DocumentsController < ApplicationController
   def update
     @folder = Folder.find(params[:folder_id])
     @document = Document.find(params[:id])
-    # binding.pry
     @document.update(document_params)
-    binding.pry
     if @document.valid?
       return redirect_to folder_documents_path(@folder.id) 
     else
@@ -27,8 +42,10 @@ class DocumentsController < ApplicationController
   end
   
   def destroy
+    @folder = Folder.find(params[:folder_id])
     document = Document.find(params[:id])
     document.destroy
+    redirect_to folder_documents_path(@folder.id) 
   end
 
 
