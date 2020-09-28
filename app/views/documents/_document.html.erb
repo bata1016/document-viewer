@@ -4,7 +4,10 @@
       <div class="col-3 border"style="padding: 10px;"><%= @folder.folder_name %></div>
       <div class="col-3 border"style="padding: 10px;"><%= document.document_name %></div>
       <div class="col-3 border"style="padding: 10px;"><%= document.created_at %></div>
-      <div class="col-3 border"style="padding: 10px;"><%= "編集 削除" %></div>
+      <div class="col-3 border"style="padding: 10px;">
+      <%= link_to "編集", edit_folder_document_path(@folder.id, document.id) %>
+      <%= link_to "削除", folder_document_path(@folder.id, document.id), method: :delete%>
+      </div>
       <div class="preview " style="width: 90%;">
       <% document.images.each do |image| %>
         <%= image_tag image.preview(resize: "1000x1000")%>
