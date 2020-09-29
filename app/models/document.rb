@@ -6,4 +6,13 @@ class Document < ApplicationRecord
   belongs_to :user
   belongs_to :folder
   has_many_attached :images
+
+
+  # def self.search(search)
+  #   if search != ""
+  #     # binding.pry
+  #     Document.where("document_name LIKE(?)", "%#{search}%")
+  #   end
+  # end
+
 end

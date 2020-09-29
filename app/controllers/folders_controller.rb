@@ -2,6 +2,7 @@ class FoldersController < ApplicationController
 def index 
     @user_name = current_user.name
     @folders = Folder.all
+    # @folder = Folder.find(params[:id])
 
   end
 
@@ -23,6 +24,12 @@ def index
     folder = Folder.find(params[:id])
     folder.destroy
     redirect_to root_path
+  end
+
+  def search
+    @folders = Folder.all
+    @documents = SearchDocumentsService.search(params[:keyword])
+
   end
 
 
