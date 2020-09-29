@@ -47,6 +47,13 @@ class DocumentsController < ApplicationController
     redirect_to folder_documents_path(@folder.id) 
   end
 
+  # def search
+  #   @folders = Folder.all
+  #   binding.pry
+  #   @folder = Folder.find(params[:folder_id])
+  #   @documents = SearchDocumentsService.search(params[:keyword])
+  # end
+
 
   private
 

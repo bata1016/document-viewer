@@ -1,0 +1,22 @@
+<div wrapper>
+ <%= render "documents/side_bar" %>
+  <div class="row" >
+    <div class="col-3">
+      <%= render "documents/folders" %>
+    </div> 
+    <div class="col" style="height:100vh;">
+      <div class="document " style="padding: 15px 30px 15px 30px;">
+        <% @documents.each do |document| %>
+        <div class="row d-flex justify-content-around">
+          <div class="col-6 border"style="display:inline-block; padding: 10px;">タグ：<%= document.document_name %></div>
+          <div class="col-6 border"style="display:inline-block; padding: 10px;"><%= document.created_at %></div>
+          </div>
+          <div class="preview " >
+          <% document.images.each do |image| %>
+            <%= image_tag image.preview(resize: "1000x1050") %>
+          <% end %> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
