@@ -8,6 +8,7 @@ class DocumentsController < ApplicationController
 
   def new 
     @folder = Folder.find(params[:folder_id])
+    @document = Document.new
   end
 
   def create
@@ -19,7 +20,6 @@ class DocumentsController < ApplicationController
     else
       render "new"
     end
-
   end
 
   def edit
@@ -31,9 +31,7 @@ class DocumentsController < ApplicationController
 
   def update
     @folder = Folder.find(params[:folder_id])
-    @document = Document.find(params[:id])
-    @document.update(document_params)
-    if @document.valid?
+    if Document.update(document_params)
       return redirect_to folder_documents_path(@folder.id) 
     else
       render "edit"
@@ -47,17 +45,9 @@ class DocumentsController < ApplicationController
     redirect_to folder_documents_path(@folder.id) 
   end
 
-  # def search
-  #   @folders = Folder.all
-  #   binding.pry
-  #   @folder = Folder.find(params[:folder_id])
-  #   @documents = SearchDocumentsService.search(params[:keyword])
-  # end
-
-
   private
 
   def document_params
-    params.require(:folder).permit(:document_name, images: []).merge(user_id: current_user.id, folder_id: @folder.id)
+    params.require(:document).permit(:document_tag, images: []).merge(folder_id: params[:folder_id], user_id: current_user.id)
   end
 end

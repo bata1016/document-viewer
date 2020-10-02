@@ -1,9 +1,7 @@
-.documents {
-  /* height:100vh; */
-  /* overflow-inline: visible; */
-}
+
 
 .document {
   height: 100vh;
   overflow: scroll;
 }
+

@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_104731) do
   end
 
   create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "document_name", null: false
+    t.string "document_tag", null: false
     t.bigint "folder_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

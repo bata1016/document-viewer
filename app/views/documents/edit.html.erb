@@ -6,35 +6,19 @@
       </div>
          <%= link_to "Log out", destroy_user_session_path, class: "btn btn-lg btn-facebook", span: "sr-only", method: :delete %>
     </div>
-    <%= form_with model: [@document, @folder], id:"new_pdf", url: folder_document_path do |f| %>
-    
-    <% if @document.errors.any? %>
-    <div class="alert error-alert">
-      <ul>
-        <% @document.errors.full_messages.each do |message| %>
-          <li class="error-message">
-            <%= message %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
+    <%= form_with model: [@folder, @document], id:"new_pdf", local: true, url: folder_document_path do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+
     
       <div class="form-row">
         <div class="form-group col-sm-6">
-          <%= f.label :document_name, "Document tag" %>
-          <%= f.text_field :document_name, id: "reInputDocumentname", placeholder: "Document tag"  %>
-          <!-- <label for="text4b">Document name</label>
-          <input type="text" class="form-control" id="text4b" placeholder="Document name"> -->
+          <%= f.label :document_tag, "Document tag" %>
+          <%= f.text_field :document_tag, id: "reInputDocumentname", placeholder: "Document tag"  %>
         </div>
         <div class="form-group col-6">
           <div class="form-group" style="margin-top: 21px;">
             <%= f.file_field :images, type: 'file',  multiple: true %>
             <%= f.submit '送信する', class: "form-submit", accept:".pdf" %>
-            <!-- <form method="post" enctype="multipart/form-data">
-              <input type="file" accept=".pdf" name="avatar">
-              <button type="submit">送信する</button> -->
-            </form>
           </div>
         </div>
       </div>
