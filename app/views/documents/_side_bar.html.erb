@@ -4,7 +4,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" data-turbolinks="false">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <%= link_to "Log out", destroy_user_session_path, class: "nav-link", span: "sr-only", method: :delete %>
@@ -27,14 +27,12 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <%= form_tag(:controller => 'folders', :action => 'search' , method: :post, class: "form-form-inline my-2 my-lg-0") do %>
+      <div data-no-turbolink>
+        <%= form_tag(:controller => 'folders', :action => 'search', method: :post, class: "form-form-inline my-2 my-lg-0") do %>
         <%= text_field_tag :keyword,'', placeholder: "Search", class: "form-control mr-sm-2" %>
-        <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
-      <% end %>
-      <!-- <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
+        <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0 " %>
+        <% end %>
+      </div>
     </div>
   </nav>
 

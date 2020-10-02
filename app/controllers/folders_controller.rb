@@ -35,7 +35,7 @@ def index
 
   private
   def document_params
-    params.require(:document_folder).permit(:document_name, :folder_name, images:[]).merge(user_id: current_user.id)
+    params.require(:document_folder).permit(:document_tag, :folder_name, images:[]).merge(user_id: current_user.id)
   end
 
 end

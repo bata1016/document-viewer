@@ -2,45 +2,37 @@
   <div class="head">
     <div class="head-top d-flex justify-content-around">
       <div class="app-name d-flex align-items-center">
-        Apps name
+        <%= link_to "App name", root_path %>
       </div>
          <%= link_to "Log out", destroy_user_session_path, class: "btn btn-lg btn-facebook", span: "sr-only", method: :delete %>
     </div>
-    <%= form_with model: @document, url: folders_path do |f| %>
-    
-    <% if @document.errors.any? %>
-    <div class="alert error-alert">
-      <ul>
-        <% @document.errors.full_messages.each do |message| %>
-          <li class="error-message">
-            <%= message %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
-    
+    <%= form_with model: @document, id:"new_pdf", url: folders_path, local: true do |f| %>
+      <% if @document.errors.any? %>
+        <div class="alert error-alert">
+          <ul>
+            <% @document.errors.full_messages.each do |message| %>
+              <li class="error-message">
+                <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <div class="form-row">
         <div class="form-group col-sm-4">
           <%= f.label :folder_name, "Folder name" %>
           <%= f.text_field :folder_name, id: "inputFoldername", placeholder: "Folder name"  %> 
-          <!-- <label for="text4a">Folder name</label>
-          <input type="text" class="form-control" id="text4a" placeholder="Folder name"> -->
         </div>
         <div class="form-group col-sm-4">
-          <%= f.label :document_name, "Document tag" %>
-          <%= f.text_field :document_name, id: "inputDocumentname", placeholder: "Document tag"  %>
-          <!-- <label for="text4b">Document name</label>
-          <input type="text" class="form-control" id="text4b" placeholder="Document name"> -->
+          <%= f.label :document_tag, "Document tag" %>
+          <%= f.text_field :document_tag, id: "inputDocumentname", placeholder: "Document tag"  %>
         </div>
         <div class="form-group col-4">
           <div class="form-group" style="margin-top: 21px;">
-            <%= f.file_field :images,  multiple: true %>
+            <%= f.label :images, for: "pdf-file", style: "display: none;" %>
+            <%= f.file_field :images,  multiple: true, type: "file" %>
             <%= f.submit '送信する', class: "form-submit", accept:".pdf" %>
-            <!-- <form method="post" enctype="multipart/form-data">
-              <input type="file" accept=".pdf" name="avatar">
-              <button type="submit">送信する</button> -->
-            </form>
           </div>
         </div>
       </div>
@@ -48,11 +40,7 @@
   </div>
 
   <div class="added-content-preview">
-    <div class="added-content">
-      <%= "PDF" %>
+    <div id="preview-list">
     </div>
   </div>
-  <footer class="d-flex justify-content-center">
-    <%= link_to "トップページへ戻る", root_path, class: "back-btn btn btn-lg btn-facebook d-flex align-items-end" %>
-  </footer>
 </div>
