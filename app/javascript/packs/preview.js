@@ -1,4 +1,4 @@
-if (document.URL.match( /new/ ) || document.URL.match(/edit/)) {
+// if (document.URL.match( /new/ ) || document.URL.match(/edit/)) {
   document.addEventListener('DOMContentLoaded', function() {
     const reader = new FileReader()
     const ImageList = document.getElementById('preview-list')
@@ -69,4 +69,4 @@ if (document.URL.match( /new/ ) || document.URL.match(/edit/)) {
       
     })
   })
-}
+// }

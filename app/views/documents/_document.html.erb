@@ -3,7 +3,7 @@
       <div class="row d-flex justify-content-around">
         <div class="col-3 border"style="padding: 10px;"><%= @folder.folder_name %></div>
         <div class="col-3 border"style="padding: 10px;">タグ：<%= document.document_tag %></div>
-        <div class="col-3 border"style="padding: 10px;"><%= document.created_at %></div>
+        <div class="col-3 border"style="padding: 10px;"><%=l document.created_at, format: :short %></div>
         <div class="col-3 border"style="padding: 10px;">
           <%= link_to "編集", edit_folder_document_path(@folder.id, document.id) %>
           <%= link_to "削除", folder_document_path(@folder.id, document.id), method: :delete%>
