@@ -1,16 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="username font-weight-bold" style="padding: 10px;"><h1 style="font-size: 20px; "><%= @user_name %></h1></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary shadow">
+  <%= link_to root_path, class: 'app-name text-monospace', style: "font-size: 20px;" do %>
+      <i class="fas fa-book-reader"></i> DocumentsViewer
+  <% end %>
+    <div class="user-name text-monospace">
+      <i class="fas fa-user-tie username"> <%= @user_name %></i>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent" data-turbolinks="false">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to "Log out", destroy_user_session_path, class: "nav-link", span: "sr-only", method: :delete %>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
+            <i class="fas fa-user-slash"></i>Log out
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "Add Folder", new_folder_path, class: "add-document nav-link" %>
+          <%= link_to new_folder_path, class: "add-document nav-link text-light text-monospace" do %>
+          <i class="fas fa-folder-plus"> Add Folder</i>
+          <% end %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,18 +32,15 @@
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
       </ul>
       <div data-no-turbolink>
         <%= form_tag(:controller => 'folders', :action => 'search', method: :post, class: "form-form-inline my-2 my-lg-0") do %>
         <%= text_field_tag :keyword,'', placeholder: "Search", class: "form-control mr-sm-2" %>
-        <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0 " %>
+        <%= submit_tag "Search", class: "btn btn-outline-light my-2 my-sm-0 " %>
         <% end %>
       </div>
     </div>
-  </nav>
+</nav>
 
   
 

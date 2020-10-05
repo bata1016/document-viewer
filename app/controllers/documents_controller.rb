@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
     @folders  = Folder.all
     @folder = Folder.find(params[:folder_id])
     @document = @folder.documents
-
+    @user_name = current_user.name
   end
 
   def new 

@@ -1,17 +1,21 @@
 <div class="wrapper">
-  <div class="head">
+  <div class="head bg-primary">
     <div class="head-top d-flex justify-content-around">
-      <div class="app-name d-flex align-items-center">
-        <%= link_to "App name",  folder_documents_path(@folder.id) %>
+      <div class="links d-flex align-items-center">
+        <%= link_to root_path, class: 'app-name text-monospace' do %>
+          <i class="fas fa-book-reader"></i> DocumentsViewer
+        <% end %>
       </div>
-         <%= link_to "Log out", destroy_user_session_path, class: "btn btn-lg btn-facebook", span: "sr-only", method: :delete %>
-    </div>
+          <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
+            <i class="fas fa-user-slash"></i>Log out
+          <% end %>
+      </div>
     <%= form_with model: [@folder,@document], id: "new_pdf", local: true, method: :post, url: folder_documents_path(@folder.id) do |f| %>    
     <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-row">
         <div class="form-group col-sm-6">
-          <%= f.label :document_tag, "Document tag" %>
-          <%= f.text_field :document_tag, id: "reInputDocumentname", placeholder: "Document tag"  %>
+          <%= f.label :document_tag, "Document tag", class: "text-monospace" %>
+          <%= f.text_field :document_tag, id: "reInputDocumentname", placeholder: "Document tag", class: "text-monospace"  %>
         </div>
         <div class="form-group col-6">
           <div class="form-group" style="margin-top: 21px;">

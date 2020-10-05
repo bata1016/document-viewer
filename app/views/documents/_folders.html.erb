@@ -1,18 +1,14 @@
-<div class="folders" style="margin-left: 10px;">
+<div class="folders">
   <% @folders.each do |folder| %>
-    <div class="folder border" style="padding: 30px 10px; width: 80%; margin-top: 10px;">
-    <%= link_to folder.folder_name, folder_documents_path(folder.id) %>
-    <%= link_to "+", new_folder_document_path(folder.id) %>
-    <%= link_to "-", folder_path(folder.id), method: :delete %>
+    <div class="folder border rounded shadow">
+      <%= link_to folder.folder_name, folder_documents_path(folder.id), class: "folder-name text-monospace" %>
+      <div></div>
+      <%= link_to new_folder_document_path(folder.id), class: "plus" do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+      <%= link_to folder_path(folder.id), class: "minus", method: :delete do %>
+        <i class="fas fa-folder-minus"></i>
+      <% end %>
     </div>
   <% end %>
 </div>
-
-<!-- <div class="folders  overflow-hidden" style="margin-left: 10px;">
-  <div class="folder border" style="padding: 10px; width: 200px; margin-top: 10px;">
-    <p class="text-center">folder</p>
-  </div>
-  <div class="folder border" style="padding: 10px; width: 200px; margin-top: 10px;">
-    <p class="text-center">folder</p>
-  </div>
-</div> -->

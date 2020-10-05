@@ -1,20 +1,29 @@
 <div wrapper>
- <%= render "documents/side_bar" %>
-  <div class="row" >
-    <div class="col-3">
+  <%= render "documents/side_bar" %>
+  <div class="row">
+    <div class="col" style="height:100;">
       <%= render "documents/folders" %>
     </div> 
-    <div class="col" style="height:100vh;">
+    <div class="col-9" style="height:100vh;">
       <div class="document " style="padding: 15px 30px 15px 30px;">
         <% @documents.each do |document| %>
-        <div class="row d-flex justify-content-around">
-          <div class="col-6 border"style="display:inline-block; padding: 10px;">タグ：<%= document.document_tag %></div>
-          <div class="col-6 border"style="display:inline-block; padding: 10px;"><%= document.created_at %></div>
+          <div class="row d-flex justify-content-around">
+            <div class="document-info col-6 shadow">タグ：<%= document.document_tag%></div>
+            <div class="document-info col-6 shadow">作成日：<%=l document.created_at, format: :short %></div>
           </div>
-          <div class="preview " >
-          <% document.images.each do |image| %>
-            <%= image_tag image.preview(resize: "1000x1050") %>
-          <% end %> 
+          
+          <div class="preview" >
+            <div class="row">
+              <% document.images.each do |image| %>
+                <div class="col-auto" style="padding:10px;">
+                  <%= image_tag image.preview(resize: "500x500") %>
+                  <%= link_to rails_blob_path(image) do %>
+                    <i class="fas fa-book-open"></i>　閲覧
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>

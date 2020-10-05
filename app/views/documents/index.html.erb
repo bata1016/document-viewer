@@ -1,10 +1,10 @@
 <div wrapper>
   <%= render "documents/side_bar" %>
-  <div class="row" >
-    <div class="col-3">
+  <div class="row" style="height:100vh;">
+    <div class="col">
       <%= render "documents/folders" %>
     </div>
-    <div class="col documents" style="height:100vh;  overflow: visible;">
+    <div class="col-9 documents" style="height:100vh; overflow: hidden;">
       <%= render "documents/document" %>
     </div>
   </div>

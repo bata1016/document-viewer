@@ -1,0 +1,30 @@
+.folders {
+  padding-left: 10px;
+  background-color: rgb(20, 94, 155);
+}
+
+.folder {
+  padding: 30px 15px;
+  width: 80%;
+  margin-top: 10px;
+  background-color: cornflowerblue;
+}
+
+.folder-name {
+  font-size: 20px;
+  color: white;
+}
+
+.plus {
+ margin:10px;
+ font-size: 20px;
+ color: cornsilk;
+ width: 10%;
+}
+
+.minus {
+ margin:10px;
+ font-size: 20px;
+ color: cornsilk;
+ width: 10%;
+}
