@@ -76,3 +76,5 @@ gem 'pry-rails'
 
 gem "mutool"
 
+gem 'font-awesome-rails'
+

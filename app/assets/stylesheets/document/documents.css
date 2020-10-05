@@ -1,7 +1,31 @@
-
-
 .document {
   height: 100vh;
   overflow: scroll;
 }
 
+.document-info {
+  border: dotted 1px !important;
+  background-color: cornflowerblue;
+  padding: 10px;
+  color: white;
+}
+
+
+
+.document-edit {
+  color: white;
+
+}
+
+.document-delete {
+  color: white;
+  margin-left: 10px;
+
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+}

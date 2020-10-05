@@ -1,0 +1,47 @@
+.username {
+  padding: 10px 20px;
+}
+
+.user-name {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  
+}
+
+.logout {
+  font-size: 20px;
+  color: white;
+}
+
+.add-document {
+  font-size: 20px;
+  color: white;
+}
+
+.nav-item {
+  padding: 10px 20px;
+
+}
+
+a{
+  position: relative;
+  display: inline-block;
+  transition: .3s;
+}
+
+a::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: .3s;
+  transform: translateX(-50%);
+}
+
+a:hover::after{
+  width: 100%;
+}

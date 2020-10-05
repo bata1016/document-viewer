@@ -29,7 +29,7 @@ def index
   def search
     @folders = Folder.all
     @documents = SearchDocumentsService.search(params[:keyword])
-
+    @user_name = current_user.name
   end
 
 
