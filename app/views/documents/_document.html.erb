@@ -1,30 +1,31 @@
 <div class="document " style="padding: 15px 30px 15px 30px;">
-    <% @document.each do |document| %>
-      <div class="row d-flex justify-content-around">
-        <div class="document-info col-3 shadow"><%= 'フォルダー名：' %><%= @folder.folder_name %></div>
-        <div class="document-info col-3 shadow">タグ：<%= document.document_tag%></div>
-        <div class="document-info col-3 shadow"><%='作成日：' %><%=l document.created_at, format: :short%></div>
-        <div class="document-info col-3 shadow">
-          <%= link_to edit_folder_document_path(@folder.id, document.id), method: :get, class: "document-edit" do %>
-            <i class="fas fa-edit fa-xs"></i>編集
-          <% end %>
-          <%= link_to folder_document_path(@folder.id, document.id), method: :delete, class: "document-delete" do %>
-            <i class="far fa-trash-alt"></i>削除
+  <% @document.each do |document| %>
+    <div class="row d-flex justify-content-around">
+      <div class="document-info col-3 shadow"><%= 'フォルダー名：' %><%= @folder.folder_name %></div>
+      <div class="document-info col-3 shadow">タグ：<%= document.document_tag%></div>
+      <div class="document-info col-3 shadow"><%='作成日：' %><%=l document.created_at, format: :short%></div>
+      <div class="document-info col-3 shadow">
+        <%= link_to edit_folder_document_path(@folder.id, document.id), method: :get, class: "document-edit" do %>
+          <i class="fas fa-edit fa-xs"></i>編集
+        <% end %>
+        <%= link_to folder_document_path(@folder.id, document.id), method: :delete, class: "document-delete" do %>
+          <i class="far fa-trash-alt"></i>削除
+        <% end %>
+      </div>
+    </div>
+
+    <div class="preview" >
+      <div class="row">
+      <% document.images.each do |image| %>
+        <div class="col-auto" style="padding:10px;">
+          <%= image_tag image.preview(resize: "500x500")%>
+          <%= link_to rails_blob_path(image) do %>
+            <i class="fas fa-book-open"></i>閲覧
           <% end %>
         </div>
-      <div class="preview" >
-        <div class="row">
-          <% document.images.each do |image| %>
-            <div class="col-auto" style="padding:10px;">
-              <%= link_to rails_blob_path(image) do %>
-                <i class="fas fa-book-open"></i>　閲覧
-              <% end %>
-            </div>
-            <%= image_tag image.preview(resize: "500x500")%>
-          <% end %> 
-        </div>
+      <% end %> 
       </div>
-      </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>
 

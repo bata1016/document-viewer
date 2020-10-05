@@ -7,22 +7,25 @@
     <div class="col-9" style="height:100vh;">
       <div class="document " style="padding: 15px 30px 15px 30px;">
         <% @documents.each do |document| %>
-        <div class="row d-flex justify-content-around">
-          <div class="document-info col-6 shadow">タグ：<%= document.document_tag%></div>
-          <div class="document-info col-6 shadow">作成日：<%=l document.created_at, format: :short %></div>
-        </div>
-        <div class="preview" >
-          <div class="row">
-            <% document.images.each do |image| %>
-            <div class="col-auto" style="padding:10px;">
-              <%= link_to rails_blob_path(image) do %>
-                <i class="fas fa-book-open"></i>　閲覧
+          <div class="row d-flex justify-content-around">
+            <div class="document-info col-6 shadow">タグ：<%= document.document_tag%></div>
+            <div class="document-info col-6 shadow">作成日：<%=l document.created_at, format: :short %></div>
+          </div>
+          
+          <div class="preview" >
+            <div class="row">
+              <% document.images.each do |image| %>
+                <div class="col-auto" style="padding:10px;">
+                  <%= image_tag image.preview(resize: "500x500") %>
+                  <%= link_to rails_blob_path(image) do %>
+                    <i class="fas fa-book-open"></i>　閲覧
+                  <% end %>
+                </div>
               <% end %>
             </div>
-            <%= image_tag image.preview(resize: "500x500") %>
-          <% end %> 
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
 }
 
 .folder {
-  padding: 30px 10px;
+  padding: 30px 15px;
   width: 80%;
   margin-top: 10px;
   background-color: cornflowerblue;
@@ -16,13 +16,15 @@
 }
 
 .plus {
- margin:10px 20px;
+ margin:10px;
  font-size: 20px;
  color: cornsilk;
+ width: 10%;
 }
 
 .minus {
- margin:10px 20px;
+ margin:10px;
  font-size: 20px;
  color: cornsilk;
+ width: 10%;
 }
