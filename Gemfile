@@ -78,3 +78,5 @@ gem "mutool"
 
 gem 'font-awesome-rails'
 
+gem 'rails-i18n'
+

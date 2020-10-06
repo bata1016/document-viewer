@@ -7,7 +7,7 @@
         <% end %>
         </div>
         <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
-          <i class="fas fa-user-slash"></i>Log out
+          <i class="fas fa-user-slash"></i>ログアウト
         <% end %>
     </div>
   <%= form_with model: @document, id:"new_pdf", url: folders_path, local: true do |f| %>
@@ -25,11 +25,11 @@
 
       <div class="form-row">
         <div class="form-group col-sm-4">
-          <%= f.label :folder_name, "Folder name", class:'text-monospace' %>
+          <%= f.label :folder_name, class:'text-monospace' %>
           <%= f.text_field :folder_name, id: "inputFoldername", placeholder: "Folder name", class:'text-monospace'  %> 
         </div>
         <div class="form-group col-sm-4">
-          <%= f.label :document_tag, "Document tag", class:'text-monospace' %>
+          <%= f.label :document_tag, class:'text-monospace' %>
           <%= f.text_field :document_tag, id: "inputDocumentname", placeholder: "Document tag", class:'text-monospace'  %>
         </div>
         <div class="form-group col-4">

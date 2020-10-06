@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :name,                  presence: true
   validates :email,                 presence: true
-  validates :password,              presence: true, format: { with: VALID_PASSWORD_REGEX, message: "Include both letters and numbers"}
+  validates :password,              presence: true, format: { with: VALID_PASSWORD_REGEX, message: "は半角英数字で入力してください"}
   validates :password_confirmation, presence: true
 
   has_many :documents

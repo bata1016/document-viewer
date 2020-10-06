@@ -7,7 +7,7 @@
         <% end %>
       </div>
           <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
-            <i class="fas fa-user-slash"></i>Log out
+            <i class="fas fa-user-slash"></i>ログアウト
           <% end %>
     </div>
     <%= form_with model: [@folder, @document], id:"new_pdf", local: true, url: folder_document_path do |f| %>
@@ -16,8 +16,8 @@
     
       <div class="form-row">
         <div class="form-group col-sm-6">
-          <%= f.label :document_tag, "Document tag", class: "text-monospace" %>
-          <%= f.text_field :document_tag, id: "reInputDocumentname", placeholder: "Document tag", class: "text-monospace"  %>
+          <%= f.label :document_tag, class: "text-monospace" %>
+          <%= f.text_field :document_tag, id: "reInputDocumentname", placeholder: "タグ", class: "text-monospace"  %>
         </div>
         <div class="form-group col-6">
           <div class="form-group" style="margin-top: 21px;">

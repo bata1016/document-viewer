@@ -3,3 +3,22 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%Y/%m/%d"
+  activerecord:
+    models:
+      folder: "フォルダー"
+      document: ドキュメント
+    attributes:
+      folder:
+        folder_name: フォルダー名
+      document:
+        document_tag: タグ
+        images: PDF
+  activemodel:
+    models:
+      document_folder: 文書
+    attributes:
+      document_folder:
+        folder_name: フォルダー名
+        document_tag: タグ
+        images: PDF
+
