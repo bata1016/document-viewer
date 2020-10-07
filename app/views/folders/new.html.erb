@@ -36,7 +36,7 @@
           <div class="form-group" style="margin-top: 21px;">
             <%= f.label :images, for: "pdf-file", style: "display: none;" %>
             <%= f.file_field :images,  multiple: true, type: "file" %>
-            <%= f.submit '送信する', class: "form-submit", accept:".pdf" %>
+            <%= f.submit '送信する', class: "form-submit", accept:"application/pdf" %>
           </div>
         </div>
       </div>

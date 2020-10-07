@@ -21,4 +21,7 @@ ja:
         folder_name: フォルダー名
         document_tag: タグ
         images: PDF
+  errors:
+    messages:
+      content_type_invalid: "で保存してください"
 

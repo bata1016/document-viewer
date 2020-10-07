@@ -1,6 +1,6 @@
 class Document < ApplicationRecord
   validates :document_tag,    presence: true
-  validates :images,          presence: true 
+  validates :images,          presence: true, attached: true, content_type: {in:'application/pdf', message: 'で保存してください'} 
   validates :user,            presence: true
   validates :folder,          presence: true
   validate :images_length_validate, :images_type_validate

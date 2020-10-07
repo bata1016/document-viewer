@@ -3,6 +3,7 @@ class DocumentFolder
   include ActiveModel::Model
   include ActiveModel::Validations
 
+
   attr_accessor :document_tag, :folder_name, :images, :user_id, :folder_id
 
 
@@ -10,8 +11,10 @@ class DocumentFolder
   validates :document_tag, presence: true
   validates :folder_name,   presence: true
   validates :images,         presence: true
-  validate :folder_name_is_unique, :images_type_validate, :images_length_validate
-
+  validate :folder_name_is_unique, :images_length_validate, :images_type_validate
+  #  :check_file_type
+  # :images_type_validate
+  # attached: true, content_type: {in:'application/pdf', message: 'で保存してください'}
 
 
 
@@ -31,10 +34,19 @@ class DocumentFolder
     end
   end
 
+  def check_file_type
+    if images != nil
+      images.each do |image|
+        !image.content_type.in?(%w(application/pdf))
+        errors.add(:images, "で保存してください")
+      end
+    end
+  end
+
   def images_type_validate
     if images != nil
       images.each do |image|
-        if !image.content_type.include?('pdf')
+        if !image.content_type.include?('application/pdf')
           errors.add(:images,'で保存してください')
         end
       end
