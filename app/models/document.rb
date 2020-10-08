@@ -1,6 +1,6 @@
 class Document < ApplicationRecord
   validates :document_tag,    presence: true
-  validates :images,          presence: true, attached: true, content_type: {in:'application/pdf', message: 'で保存してください'} 
+  validates :images,          presence: true
   validates :user,            presence: true
   validates :folder,          presence: true
   validate :images_length_validate, :images_type_validate
@@ -13,7 +13,7 @@ class Document < ApplicationRecord
   private
   def images_length_validate
     if images != nil
-      if images.length >= 4
+      if images.length >= 5
       errors.add(:images, "は4枚までにしてください")
       end
     end
@@ -21,6 +21,7 @@ class Document < ApplicationRecord
 
   def images_type_validate
     if images != nil
+      binding.pry
       images.each do |image|
         if !image.content_type.include?('pdf')
           errors.add(:images,'で保存してください')

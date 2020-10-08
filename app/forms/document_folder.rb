@@ -28,25 +28,28 @@ class DocumentFolder
   private
   def images_length_validate
     if images != nil
-      if images.length >= 4
+      if images.length >= 5
       errors.add(:images, "は4枚までにしてください")
       end
     end
   end
 
-  def check_file_type
-    if images != nil
-      images.each do |image|
-        !image.content_type.in?(%w(application/pdf))
-        errors.add(:images, "で保存してください")
-      end
-    end
-  end
+  # def check_file_type
+  #   if images != nil
+  #     images.each do |image|
+  #       !image.content_type.in?(%w(application/pdf))
+  #       errors.add(:images, "で保存してください")
+  #     end
+  #   end
+  # end
 
   def images_type_validate
     if images != nil
       images.each do |image|
-        if !image.content_type.include?('application/pdf')
+        binding.pry
+         file_name = File.extname(image)
+        if !file_name.include?(".pdf")
+          !image.content_type.include?('application/pdf')
           errors.add(:images,'で保存してください')
         end
       end
@@ -55,7 +58,7 @@ class DocumentFolder
 
   def folder_name_is_unique
     unless Folder.where(folder_name: folder_name).count == 0
-      errors.add(:folder_name, 'は既に使われています')
+      errors.add(:folder_name, 'は既に存在しています')
     end
   end
 
