@@ -46,7 +46,6 @@ class DocumentFolder
   def images_type_validate
     if images != nil
       images.each do |image|
-        binding.pry
          file_name = File.extname(image)
         if !file_name.include?(".pdf")
           !image.content_type.include?('application/pdf')
