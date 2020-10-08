@@ -13,12 +13,12 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
-            <i class="fas fa-user-slash"></i>Log out
+            <i class="fas fa-user-slash"></i>ログアウト
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to new_folder_path, class: "add-document nav-link text-light text-monospace" do %>
-          <i class="fas fa-folder-plus"> Add Folder</i>
+          <i class="fas fa-folder-plus"> フォルダー追加</i>
           <% end %>
         </li>
         <li class="nav-item dropdown">
@@ -35,8 +35,8 @@
       </ul>
       <div data-no-turbolink>
         <%= form_tag(:controller => 'folders', :action => 'search', method: :post, class: "form-form-inline my-2 my-lg-0") do %>
-        <%= text_field_tag :keyword,'', placeholder: "Search", class: "form-control mr-sm-2" %>
-        <%= submit_tag "Search", class: "btn btn-outline-light my-2 my-sm-0 " %>
+        <%= text_field_tag :keyword,'', placeholder: "検索", class: "form-control mr-sm-2" %>
+        <%= submit_tag "検索", class: "btn btn-outline-light my-2 my-sm-0 " %>
         <% end %>
       </div>
     </div>

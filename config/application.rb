@@ -12,6 +12,9 @@ module DocumentViewer
     config.load_defaults 6.0
     config.time_zone = 'Asia/Tokyo'
     config.i18n.default_locale = :ja
+    # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s] #言語変換表はここにあるよ設定
+    # config.i18n.available_locales = :ja
+    # %w(en ja) 
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

@@ -78,3 +78,7 @@ gem "mutool"
 
 gem 'font-awesome-rails'
 
+gem 'rails-i18n'
+
+gem 'active_storage_validations'
+

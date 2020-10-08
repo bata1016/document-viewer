@@ -6,8 +6,11 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
+            <div class='login-flash-message'>
+              <%= flash[:notice] %>
+              <%= flash[:alert] %>
+            </div>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-signin") do |f| %>
-              <%= render "devise/shared/error_messages", resource: resource %>
               <div class="form-label-group">
                 <%= f.email_field :email, id: "inputEmail", class: "form-control", placeholder: "Email address", autofocus: true, autocomplete: "email"%>
                 <%= f.label :email, for: "inputEmail"%>
