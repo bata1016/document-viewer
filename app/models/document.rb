@@ -21,7 +21,6 @@ class Document < ApplicationRecord
 
   def images_type_validate
     if images != nil
-      binding.pry
       images.each do |image|
         if !image.content_type.include?('pdf')
           errors.add(:images,'で保存してください')
