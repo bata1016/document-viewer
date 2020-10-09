@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: document_viewer_production
-  username: document_viewer
-  password: <%= ENV['DOCUMENT_VIEWER_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
