@@ -17,12 +17,14 @@
     <div class="preview" >
       <div class="row">
       <% document.images.each do |image| %>
-        <div class="col-auto" style="padding:10px;">
-          <%= image_tag image.preview(resize: "500x500")%>
-          <%= link_to rails_blob_path(image) do %>
-            <i class="fas fa-book-open"></i>閲覧
-          <% end %>
-        </div>
+        <% if image.previewable? %>
+          <div class="col-auto" style="padding:10px;">
+            <%= image_tag image.preview(resize: "500x500")%>
+            <%= link_to rails_blob_path(image) do %>
+              <i class="fas fa-book-open"></i>閲覧
+            <% end %>
+          </div>
+        <% end %>
       <% end %> 
       </div>
     </div>
