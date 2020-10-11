@@ -32,7 +32,9 @@
   <div class="added-content-preview">
     <div id="preview-list">
       <% @document.images.each do |image| %>
-        <%= image_tag image.preview(resize:'500x1000') %>
+        <% if image.previewable? %>
+          <%= image_tag image.preview(resize:'500x1000') %>
+        <% end %>
       <% end %>
     </div>
   </div>
