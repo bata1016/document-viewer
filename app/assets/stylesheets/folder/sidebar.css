@@ -24,6 +24,14 @@
 
 }
 
+#navbarDropdown {
+  font-size: 20px;
+  color: white;
+}
+.dropdown-item-text {
+  font-weight: bold;
+}
+
 a{
   position: relative;
   display: inline-block;
