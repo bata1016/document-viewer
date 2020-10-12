@@ -22,16 +22,21 @@
           <% end %>
         </li>
         <li class="nav-item dropdown">
-          <div class="nav-link dropdown-toggle text-monospace" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="nav-link dropdown-toggle text-monospace" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             並び替え
           </div>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <span class="dropdown-item-text" style="font-weight: bold;">フォルダー</span>
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <span class="dropdown-item-text">フォルダー</span>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <%= link_to "新しい順", sort_folders_path(sort_decs:true), class: "dropdown-item", method: :post%>
+            <%= link_to "古い順", sort_folders_path(sort_acs:true), class: "dropdown-item", method: :post%>
+            <%= link_to "名前順", sort_folders_path(name_decs:true), class: "dropdown-item", method: :post%>
+            <% if params[:folder_id] %>
+              <div class="dropdown-divider"></div>
+              <span class="dropdown-item-text">ファイル</span>
+              <%= link_to "新しい順",  sort_folder_documents_path(sort_decs:true), class: "dropdown-item", method: :post%>
+              <%= link_to "古い順",  sort_folder_documents_path(sort_asc:true), class: "dropdown-item", method: :post%>
+              <%= link_to "タグ順",  sort_folder_documents_path(name_decs:true), class: "dropdown-item", method: :post%>
+            <% end %>
           </div>
         </li>
       </ul>

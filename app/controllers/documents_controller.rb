@@ -45,6 +45,20 @@ class DocumentsController < ApplicationController
     redirect_to folder_documents_path(@folder.id) 
   end
 
+  def sort
+    @folders  = Folder.all.order("created_at DESC")
+    @folder = Folder.find(params[:folder_id])
+    # @document = @folder.documents
+    @user_name = current_user.name
+    if params[:sort_decs]
+      @document = @folder.documents.order("created_at DESC")
+    elsif params[:sort_asc]
+      @document = @folder.documents.order("created_at ASC")
+    elsif params[:name_decs]
+      @document = @folder.documents.order("created_at DESC")
+    end
+  end
+
   private
 
   def document_params
