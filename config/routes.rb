@@ -9,9 +9,6 @@ Rails.application.routes.draw do
     end
     collection do
       post "search"
-      collection do
-        post "sort"
-      end
     end
     collection do
       post "sort"

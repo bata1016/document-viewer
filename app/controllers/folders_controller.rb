@@ -1,9 +1,7 @@
 class FoldersController < ApplicationController
 def index 
     @user_name = current_user.name
-    # @folders = Folder.all
-    @search = Folder.ransack(params[:q])
-    @folders = @search.result
+    @folders = Folder.all.order("created_at DESC")
 
   end
 
@@ -28,7 +26,7 @@ def index
   end
 
   def search
-    @folders = Folder.all
+    @folders = Folder.all.order('created_at DESC')
     @documents = SearchDocumentsService.search(params[:keyword])
     @user_name = current_user.name
   end
