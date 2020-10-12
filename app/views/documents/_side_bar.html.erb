@@ -42,7 +42,7 @@
       </ul>
       <div data-no-turbolink>
         <%= form_tag(:controller => 'folders', :action => 'search', method: :post, class: "form-form-inline my-2 my-lg-0") do %>
-        <%= text_field_tag :keyword,'', placeholder: "検索", class: "form-control mr-sm-2" %>
+        <%= text_field_tag :keyword,'', placeholder: "タグを検索", class: "form-control mr-sm-2" %>
         <%= submit_tag "検索", class: "btn btn-outline-light my-2 my-sm-0 " %>
         <% end %>
       </div>
