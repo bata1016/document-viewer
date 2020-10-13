@@ -1,18 +1,17 @@
 class DocumentsController < ApplicationController
+  before_action :set_folder, only: [:index, :sort]
+  before_action :find_folder_id
+
   def index 
-    @folders  = Folder.all
-    @folder = Folder.find(params[:folder_id])
     @document = @folder.documents
     @user_name = current_user.name
   end
 
   def new 
-    @folder = Folder.find(params[:folder_id])
     @document = Document.new
   end
 
   def create
-    @folder = Folder.find(params[:folder_id])
     @document = Document.new(document_params)
     if @document.valid?
       @document.save
@@ -24,13 +23,10 @@ class DocumentsController < ApplicationController
 
   def edit
     @document = Document.find(params[:id])
-    @folder = Folder.find(params[:folder_id])
-
   end
 
 
   def update
-    @folder = Folder.find(params[:folder_id])
     if Document.update(document_params)
       return redirect_to folder_documents_path(@folder.id) 
     else
@@ -39,15 +35,12 @@ class DocumentsController < ApplicationController
   end
   
   def destroy
-    @folder = Folder.find(params[:folder_id])
     document = Document.find(params[:id])
     document.destroy
     redirect_to folder_documents_path(@folder.id) 
   end
 
   def sort
-    @folders  = Folder.all.order("created_at DESC")
-    @folder = Folder.find(params[:folder_id])
     # @document = @folder.documents
     @user_name = current_user.name
     if params[:sort_decs]
@@ -64,4 +57,14 @@ class DocumentsController < ApplicationController
   def document_params
     params.require(:document).permit(:document_tag, images: []).merge(folder_id: params[:folder_id], user_id: current_user.id)
   end
+
+  def set_folder
+    @folders  = Folder.includes(:user).order("created_at DESC")
+  end
+
+  def find_folder_id
+    @folder = Folder.find(params[:folder_id])
+  end
+
+
 end

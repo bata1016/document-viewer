@@ -1,11 +1,11 @@
 
 <body>
-  <div class="container">
+  <div class="wrapper bg-primary", style="height :100vh;" >
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
+            <h5 class="card-title text-center">ログイン</h5>
             <div class='login-flash-message'>
               <%= flash[:notice] %>
               <%= flash[:alert] %>
@@ -22,10 +22,10 @@
               </div>
               <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember password</label>
+                <label class="custom-control-label" for="customCheck1">パスワードを記録する</label>
               </div>
               <div class="form-label-group">
-                <%= f.submit 'Sign in', class: "btn btn-lg btn-primary btn-block text-uppercase" %>
+                <%= f.submit 'ログイン', class: "btn btn-lg btn-primary btn-block text-uppercase" %>
               </div>  
             <% end %>
             <%= render "devise/shared/links" %>
