@@ -1,9 +1,8 @@
 class FoldersController < ApplicationController
-def index 
-    @user_name = current_user.name
-    @folders = Folder.all
-    # @folder = Folder.find(params[:id])
-
+  before_action :set_user, only: [:index, :search, :sort]
+  
+  def index 
+    @folders = Folder.all.order("created_at DESC")
   end
 
   def new
@@ -27,15 +26,32 @@ def index
   end
 
   def search
-    @folders = Folder.all
+    @folders = Folder.all.order('created_at DESC')
     @documents = SearchDocumentsService.search(params[:keyword])
-    @user_name = current_user.name
+  end
+
+  def sort 
+    if params[:sort_decs]
+      @folders = Folder.all.order("created_at DESC")
+    elsif params[:sort_acs]
+      @folders = Folder.all.order("created_at ASC")
+    elsif params[:name_decs]
+      @folders = Folder.all.order("folder_name DESC")
+    end
   end
 
 
   private
   def document_params
     params.require(:document_folder).permit(:document_tag, :folder_name, images: []).merge(user_id: current_user.id)
+  end
+
+  def sort_params
+    params.require(:q).permit(:sorts)
+  end
+
+  def set_user
+    @user_name = current_user.name
   end
 
 end

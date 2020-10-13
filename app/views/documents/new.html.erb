@@ -3,7 +3,7 @@
     <div class="head-top d-flex justify-content-around">
       <div class="links d-flex align-items-center">
         <%= link_to root_path, class: 'app-name text-monospace' do %>
-          <i class="fas fa-book-reader"></i> DocumentsViewer
+          <i class="fas fa-book-reader"></i> DocumentViewer
         <% end %>
       </div>
           <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
@@ -14,7 +14,7 @@
     <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-row">
         <div class="form-group col-sm-6">
-          <%= f.label :document_tag, class: "text-monospace" %>
+          <%= f.label :document_tag, class: "text-monospace", style: "color: white;" %>
           <%= f.text_field :document_tag, id: "reInputDocumentname", placeholder: "タグ", class: "text-monospace"  %>
         </div>
         <div class="form-group col-6">
