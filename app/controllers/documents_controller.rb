@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
   before_action :find_folder_id
 
   def index 
-    @document = @folder.documents
+    @documents = @folder.documents
     @user_name = current_user.name
   end
 
@@ -44,11 +44,11 @@ class DocumentsController < ApplicationController
     # @document = @folder.documents
     @user_name = current_user.name
     if params[:sort_decs]
-      @document = @folder.documents.order("created_at DESC")
+      @documents = @folder.documents.order("created_at DESC")
     elsif params[:sort_asc]
-      @document = @folder.documents.order("created_at ASC")
+      @documents = @folder.documents.order("created_at ASC")
     elsif params[:name_decs]
-      @document = @folder.documents.order("created_at DESC")
+      @documents = @folder.documents.order("created_at DESC")
     end
   end
 
