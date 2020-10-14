@@ -46,9 +46,6 @@ class FoldersController < ApplicationController
     params.require(:document_folder).permit(:document_tag, :folder_name, images: []).merge(user_id: current_user.id)
   end
 
-  def sort_params
-    params.require(:q).permit(:sorts)
-  end
 
   def set_user
     @user_name = current_user.name
