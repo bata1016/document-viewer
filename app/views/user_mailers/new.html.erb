@@ -22,11 +22,11 @@
   <div class="userEmail bg-primary ">
     <div class="userEmailInfo">
       <div class="userEmailAddress">
-        <p >差出人: <%= @user_mail %></p>
+        <p style="color: white;">差出人: <%= @user_mail %></p>
         <%= @images.each do |image| %>
-          <p>ファイル名：<%= image.filename %></p>
+          <p style="color: white;">ファイル名：<%= image.blob.filename %></p>
         <% end %>
-        <p>添付枚数：<%= @images.length %>枚</p>
+        <p style="color: white;">添付枚数：<%= @images.length %>枚</p>
       </div>
     </div>
     <div class="sendForm">
