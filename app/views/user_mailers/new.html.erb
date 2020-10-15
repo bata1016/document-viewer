@@ -1,27 +1,48 @@
 <div class="wrapper">
-  <div class="head bg-primary">
-    <div class="head-top d-flex justify-content-around">
-      <div class="links d-flex align-items-center">
-        <%= link_to root_path, class: 'app-name text-monospace' do %>
-          <i class="fas fa-book-reader"></i> DocumentViewer
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow">
+    <%= link_to root_path, class: 'app-name text-monospace', style: "font-size: 20px;" do %>
+        <i class="fas fa-book-reader"></i> DocumentViewer
+    <% end %>
+    <div class="user-name text-monospace">
+      <i class="fas fa-user-tie username"> <%= @user_name %></i>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" data-turbolinks="false">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
+            <i class="fas fa-user-slash"></i>ログアウト
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="userEmail bg-primary ">
+    <div class="userEmailInfo">
+      <div class="userEmailAddress">
+        <p >差出人: <%= @user_mail %></p>
+        <%= @images.each do |image| %>
+          <p>ファイル名：<%= image.filename %></p>
         <% end %>
-        </div>
-        <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
-          <i class="fas fa-user-slash"></i>ログアウト
-        <% end %>
-        </div>
+        <p>添付枚数：<%= @images.length %>枚</p>
+      </div>
     </div>
     <div class="sendForm">
       <div id="sendEmail">
         <%= form_tag(:controller => "user_mailers", :action => "create") do %>
-        <%= email_field :send_email,'', placeholder: "宛先", class:"emailform" %>
-        <%= text_field :subject,'', placeholder: "件名", class:"emailform" %>
-        <%= text_area :message,'', placeholder: "本文", class:"emailform" %>
-        <%= submit_tag "送信" %>
-      <% end %>
+          <%= email_field :send_email,'', placeholder: "宛先", class:"emailform" %>
+          <%= text_field :subject,'', placeholder: "件名", class:"emailform" %>
+          <%= text_area :message,'', placeholder: "本文", class:"emailform main", style: "height:130px;" %>
+          <%= submit_tag "送信", class:"emailSubmit" %>
+        <% end %>
       </div>
-    </div>
-  </div>
+    </div> 
+  </div> 
 </div>
+
+
+
 
 

@@ -1,16 +1,40 @@
+.userEmail {
+  height: 100vh;
+  padding: 30px;
+}
+
+.userEmailInfo {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  align-items: center;
+}
+
+.userEmailAddress {
+  text-align: center;
+
+}
+
 .sendForm {
-  height: 100%;
+  height: calc(100% - 100px);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 #sendEmail {
-  width: 80%;
-  
+  width: 70%;
+  text-align: center;
 }
 
 .emailform {
   display: block;
   width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.emailSubmit {
+  width: 30%;
+  height: 40px;
 }
