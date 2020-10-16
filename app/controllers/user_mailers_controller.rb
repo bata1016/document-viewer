@@ -13,7 +13,7 @@ class UserMailersController < ApplicationController
     document = Document.find(params[:document_id])
     images = document.images
     binding.pry
-    if UserMailer.send_email(email_params, user_mail, images).deliver_now
+    if UserMailer.send_email(email_params, user_mail, images).deliver
       redirect_to root_path
     else
       render :new
