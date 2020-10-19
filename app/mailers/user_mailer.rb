@@ -1,12 +1,12 @@
 class UserMailer < ApplicationMailer 
-  
-  def send_email(email_params, user_mail, images)
-    @email_params = email_params
+  def send_email(mail, user_mail, images)
+    @mail = mail
     @user_mail = user_mail
     images.each do |image|
       attachments[image.filename.to_s] = { mime_type: 'application/pdf', content: image.blob.download }
     end
-    mail from: @user_mail, to: @email_params[:send_email], subject: @email_params[:subject], message: @email_params[:message]
+    binding.pry
+    mail from: @user_mail, to: @mail.send_email, subject: @mail.subject, message: @mail.message
   end
 end
 

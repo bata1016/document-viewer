@@ -23,6 +23,12 @@
 
 }
 
+.document-send {
+  color: white;
+  margin-left: 10px;
+
+}
+
 .preview {
   display: flex;
   justify-content: center;

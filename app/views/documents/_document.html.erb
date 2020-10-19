@@ -11,7 +11,9 @@
         <%= link_to folder_document_path(@folder.id, document.id), method: :delete, class: "document-delete" do %>
           <i class="far fa-trash-alt"></i>削除
         <% end %>
-        <%= link_to "メール", new_folder_document_user_mailer_path(@folder.id, document.id), method: :get, class: "document-send" %>
+        <%= link_to new_folder_document_user_mailer_path(@folder.id, document.id), method: :get, class: "document-send" do %>
+          <i class="far fa-envelope">メール</i>
+        <% end %>
       </div>
     </div>
 
