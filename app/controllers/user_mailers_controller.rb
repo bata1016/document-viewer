@@ -15,12 +15,15 @@ class UserMailersController < ApplicationController
     @folder = Folder.find(params[:folder_id])
     @document = Document.find(params[:document_id])
     @email = Email.new(email_params)
-    binding.pry
-    images = @document.images
+    @images = @document.images
     # binding.pry
-    if UserMailer.send_email(@email, user_mail, images).deliver_now
-      redirect_to root_path
+    if @email.valid?
+      UserMailer.send_email(@email, user_mail, images).deliver_now
+      return redirect_to root_path
     else
+      flash[:alert] =  "入力が正しくありません。もう一度ご記入ください。"
+      @user_name = current_user.name
+      @user_mail = current_user.email
       render :new
     end
   end
@@ -29,4 +32,5 @@ class UserMailersController < ApplicationController
   def email_params
     params.permit(:send_email, :subject, :message).merge(user_id: @user.id, folder_id: @folder.id, document_id: @document.id)
   end
+
 end
