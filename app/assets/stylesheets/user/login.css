@@ -110,6 +110,17 @@
   color: white;
   background-color: #3b5998;
 }
+.user-title {
+  text-align: center;
+  padding: 20px 0;
+  
+}
+
+.userpage-appname {
+  font-size: 40px;
+  vertical-align: middle;
+  color: white;
+}
 
 /* Fallback for Edge
 -------------------------------------------------- */

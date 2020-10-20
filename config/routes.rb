@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :folders, only: [:new, :create, :destroy] do
     resources :documents, only: [:index, :new, :create, :edit, :update, :destroy ] do
+      resources :user_mailers, only: [:new, :create]
       collection do 
         post "sort"
       end
