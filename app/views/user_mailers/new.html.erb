@@ -32,11 +32,7 @@
     <div class="sendForm">
       <div id="sendEmail">
         <%= form_with(url: folder_document_user_mailers_path(@folder.id, @document.id), :controller => "user_mailers", :action => "create", method: :post, local: true) do |f| %>
-        <% flash.each do |key, value| %>
-          <p class="alert alert-<%= key %>">
-            <%= value %>
-          </p>
-        <% end %>
+        <p class="alert"><%= flash[:mail] %></p>
           <%= f.email_field :send_email, placeholder: "宛先", class:"emailform" %>
           <%= f.text_field :subject, placeholder: "件名", class:"emailform" %>
           <%= f.text_area :message, placeholder: "本文", class:"emailform main", style: "height:130px;" %>

@@ -18,10 +18,10 @@ class UserMailersController < ApplicationController
     @images = @document.images
     # binding.pry
     if @email.valid?
-      UserMailer.send_email(@email, user_mail, images).deliver_now
+      UserMailer.send_email(@email, user_mail, @images).deliver_now
       return redirect_to root_path
     else
-      flash[:alert] =  "入力が正しくありません。もう一度ご記入ください。"
+      flash.now[:mail] =  "入力が正しくありません。もう一度ご記入ください。"
       @user_name = current_user.name
       @user_mail = current_user.email
       render :new
