@@ -1,7 +1,7 @@
 <div class="folders">
   <% @folders.each do |folder| %>
     <div class="folder border rounded shadow">
-      <%= link_to folder.folder_name, folder_documents_path(folder.id), class: "folder-name text-monospace" %>
+      <%= link_to folder.folder_name, folder_documents_path(folder.id), id: "pageColor",class: "folder-name text-monospace" %>
       <div></div>
       <%= link_to new_folder_document_path(folder.id), class: "plus" do %>
         <i class="fas fa-plus"></i>
