@@ -10,7 +10,7 @@ https://documents-viewer.herokuapp.com/ <br>
 
 # 制作背景
 前職で社内の資料を探すのが手間だったため、何度も見返すものを簡単に取り出せるアプリケーションを作りたいと思い作成しました。<br>
-DEMO: /Users/kawabatahiroaki/projects/document-viewer/app/assets/images/動作確認.gif
+DEMO: /Users/kawabatahiroaki/projects/document-viewer/app/assets/images/document-viewer動作確認.gif
 
 # 工夫点
 視覚的に機能がわかるようシンプルさを意識しました。<br>
