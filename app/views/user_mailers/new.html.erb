@@ -31,7 +31,7 @@
     </div>
     <div class="sendForm">
       <div id="sendEmail">
-        <%= form_with(url: folder_document_user_mailers_path(@folder.id, @document.id), :controller => "user_mailers", :action => "create", method: :post, local: true) do |f| %>
+        <%= form_with(url: folder_document_user_mailers_path(@folder.id, @document.id), :controller => "user_mailers", :action => "create", method: :post, local: true, html:{autocomplete: "off"}) do |f| %>
         <% if flash[:mail] %>
           <p class="alert"><%= flash[:mail] %></p>
         <% end %>
