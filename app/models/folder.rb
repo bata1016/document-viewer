@@ -12,6 +12,4 @@ class Folder < ApplicationRecord
       errors.add(:folder_name, 'は既に存在します')
     end
   end
-
-  
 end
