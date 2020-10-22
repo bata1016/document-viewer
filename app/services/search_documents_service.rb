@@ -1,9 +1,10 @@
 class SearchDocumentsService
-  def self.search(search)
+  def self.search(search, user)
+    @user = user
     if search != ""
-      Document.where("document_tag LIKE(?)", "%#{search}%").order("created_at DESC")
+      @user.documents.where("document_tag LIKE(?)", "%#{search}%").order("created_at DESC")
     else
-      Document.all.order('created_at DESC')
+      @user.documents.all.order('created_at DESC')
     end
   end
 end
