@@ -1,8 +1,10 @@
 class FoldersController < ApplicationController
-  before_action :set_user, only: [:index, :search, :sort]
+  before_action :set_user_name, only: [:index, :search, :sort]
+  before_action :set_user
   
   def index 
-    @folders = Folder.all.order("created_at DESC")
+    @user = current_user
+    @folders = @user.folders.all.order("created_at DESC")
   end
 
   def new
@@ -26,17 +28,17 @@ class FoldersController < ApplicationController
   end
 
   def search
-    @folders = Folder.all.order('created_at DESC')
-    @documents = SearchDocumentsService.search(params[:keyword])
+    @folders = @user.folders.all.order('created_at DESC')
+    @documents = SearchDocumentsService.search(params[:keyword], @user)
   end
 
   def sort 
     if params[:sort_decs]
-      @folders = Folder.all.order("created_at DESC")
+      @folders = @user.folders.all.order("created_at DESC")
     elsif params[:sort_acs]
-      @folders = Folder.all.order("created_at ASC")
+      @folders = @user.folders.all.order("created_at ASC")
     elsif params[:name_decs]
-      @folders = Folder.all.order("folder_name DESC")
+      @folders = @user.folders.all.order("folder_name DESC")
     end
   end
 
@@ -47,8 +49,12 @@ class FoldersController < ApplicationController
   end
 
 
-  def set_user
+  def set_user_name
     @user_name = current_user.name
+  end
+
+  def set_user
+    @user = current_user
   end
 
 end

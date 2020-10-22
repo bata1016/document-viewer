@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
   before_action :set_folder, only: [:index, :sort]
   before_action :find_folder_id
+  before_action :set_user
 
   def index 
     @documents = @folder.documents
@@ -44,11 +45,11 @@ class DocumentsController < ApplicationController
     # @document = @folder.documents
     @user_name = current_user.name
     if params[:sort_decs]
-      @documents = @folder.documents.order("created_at DESC")
+      @documents = @user.documents.order("created_at DESC")
     elsif params[:sort_asc]
-      @documents = @folder.documents.order("created_at ASC")
+      @documents = @user.documents.order("created_at ASC")
     elsif params[:name_decs]
-      @documents = @folder.documents.order("created_at DESC")
+      @documents = @user.documents.order("created_at DESC")
     end
   end
 
@@ -59,11 +60,16 @@ class DocumentsController < ApplicationController
   end
 
   def set_folder
-    @folders  = Folder.includes(:user).order("created_at DESC")
+    @user = current_user
+    @folders  = @user.folders.includes(:user).order("created_at DESC")
   end
 
   def find_folder_id
     @folder = Folder.find(params[:folder_id])
+  end
+
+  def set_user
+    @user = current_user
   end
 
 
