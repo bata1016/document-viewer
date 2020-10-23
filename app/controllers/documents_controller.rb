@@ -49,7 +49,7 @@ class DocumentsController < ApplicationController
     elsif params[:sort_asc]
       @documents = @user.documents.order("created_at ASC")
     elsif params[:name_decs]
-      @documents = @user.documents.order("created_at DESC")
+      @documents = @user.documents.order("document_tag DESC")
     end
   end
 
