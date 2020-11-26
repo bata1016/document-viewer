@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_104731) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["folder_name"], name: "index_folders_on_folder_name", unique: true
+    t.index ["user_id", "folder_name"], name: "index_folders_on_user_id_and_folder_name", unique: true
     t.index ["user_id"], name: "index_folders_on_user_id"
   end
 

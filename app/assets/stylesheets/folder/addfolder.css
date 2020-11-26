@@ -2,11 +2,12 @@
 
 }
 .head {
-  height: 170px;
+  height: 40%;
   
 }
 .head-top {
   padding-top: 10px;
+  height: 30%;
 }
 .links {
   font-size: 30px;
@@ -19,6 +20,10 @@
 
 .form-row {
   padding: 10px;
+}
+
+#new_pdf {
+  height: 70%;
 }
 
 #inputFoldername {
@@ -42,7 +47,7 @@
 .added-content-preview {
   border-left:solid 30px #007bff;
   border-right:solid 30px #007bff;
-  height: 100vh;
+  height: calc(100vh - 30%);
 }
 
 #preview-list {

@@ -3,7 +3,7 @@ class Folder < ApplicationRecord
   validates  :user,        presence: true
   validates  :folder_name, presence: true
   # , uniqueness: {case_sensitive: true}, on: :create
-  validate :folder_name_is_unique
+  # validate :folder_name_is_unique
   belongs_to :user
   has_many   :documents, dependent: :destroy 
 

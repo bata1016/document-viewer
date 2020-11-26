@@ -32,3 +32,7 @@
 .forms {
   border-radius: 10px;
 }
+
+.field_with_errors {
+  display: inline;
+}
