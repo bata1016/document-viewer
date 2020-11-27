@@ -1,22 +1,20 @@
 <div class="wrapper">
   <div class="head bg-primary">
-    <div class="head-top d-flex justify-content-around">
-      <div class="links d-flex align-items-center">
+    <div class="head-top">
+      <div class="links d-flex justify-content-around">
         <%= link_to root_path, class: 'app-name text-monospace' do %>
           <i class="fas fa-book-reader"></i> DocumentViewer
         <% end %>
+        <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
+          <i class="fas fa-user-slash"></i>ログアウト
+        <% end %>
       </div>
-          <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
-            <i class="fas fa-user-slash"></i>ログアウト
-          <% end %>
     </div>
     <%= form_with model: [@folder, @document], id:"new_pdf", local: true, url: folder_document_path do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
-
-    
       <div class="form-row">
         <div class="form-group col-sm-6">
-          <%= f.label :document_tag, class: "text-monospace", style: "color: white;" %>
+          <%= f.label :document_tag, class: "forms text-monospace", style: "color: white;" %>
           <%= f.text_field :document_tag, id: "reInputDocumentname", placeholder: "タグ", class: "forms text-monospace"  %>
         </div>
         <div class="form-group col-6">

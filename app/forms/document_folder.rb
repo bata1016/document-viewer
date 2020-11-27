@@ -56,9 +56,10 @@ class DocumentFolder
   end
 
   def folder_name_is_unique
-    if (Folder.where(user_id: user_id).count >= 1) && (Folder.where(folder_name: folder_name).count >= 1)
+    records = Folder.where(folder_name: folder_name)
+    user_ids = records.pluck(user_id)
+    if (Folder.where(folder_name: folder_name, user_id: user_id).count >= 1)
       errors.add(:folder_name, 'は既に存在しています')
     end
   end
-
 end

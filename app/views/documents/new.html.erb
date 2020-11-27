@@ -1,16 +1,16 @@
 <div class="wrapper">
   <div class="head bg-primary">
     <div class="head-top">
-      <div class="links  d-flex justify-content-around">
-        <%= link_to root_path, class: 'app-name text-monospace' do %>
+      <div class="links d-flex justify-content-around">
+        <%= link_to root_path, class: 'app-name text-light text-monospace' do %>
           <i class="fas fa-book-reader"></i> DocumentViewer
         <% end %>
           <%= link_to destroy_user_session_path, class: "logout nav-link text-light text-monospace", span: "sr-only", method: :delete do %>
             <i class="fas fa-user-slash"></i>ログアウト
           <% end %>
-      </div>
+    </div>
     <%= form_with model: [@folder,@document], id: "new_pdf", local: true, method: :post, url: folder_documents_path(@folder.id) do |f| %>    
-    <%= render 'layouts/error_messages', model: f.object %>
+      <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-row">
         <div class="form-group col-sm-6">
           <%= f.label :document_tag, class: "forms text-monospace", style: "color: white;" %>
@@ -20,12 +20,10 @@
           <div class="form-group" style="margin-top: 21px;">
             <%= f.file_field :images,  multiple: true, type: "file" %>
             <%= f.submit '送信する', class: "form-submit", accept:".pdf" %>
-            </form>
           </div>
         </div>
       </div>
     <% end  %>
-  </div>
   </div>
 
   <div class="added-content-preview">
